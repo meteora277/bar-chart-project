@@ -1,0 +1,101 @@
+@import "./node_modules/normalize.css/normalize.css";
+
+:root {
+  --bar-height: 50px;
+}
+
+*,*::before,*::after{
+  box-sizing:border-box;
+}
+
+html {
+
+  margin:0;
+  padding:0;
+
+}
+
+body {
+
+  background: #a5a5a5;
+  margin: 30px 5%;
+
+}
+.code{
+
+height: 3rem;
+font-size: 1.5rem;;
+width:100%;
+
+}
+
+.bar-charts-container{
+
+  height: 500px;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background: white;
+  margin-bottom: 2rem;
+
+}
+
+.plot-grid{
+
+  position:relative;
+  width: 90%;
+  height:90%;
+  background: white;
+
+}
+
+.y-plot-line {
+
+  border-left: 1px solid black;
+
+}
+
+.x-plot-line{
+
+  border-bottom: 1px solid black;
+
+}
+
+.tick-container{
+
+  height: 100%;
+  width:3px;
+  right:0;
+  left:0;
+  bottom:0;
+  top:0;
+  position:absolute;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
+  
+}
+.tick{
+
+  height:100%;
+  border-top: 2px solid black;
+
+}
+.bar-container{
+  position: relative;
+  background: white;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+.bar{
+
+  background-color: orange;
+  height: var(--bar-height);
+  width: 100%;
+
+}
