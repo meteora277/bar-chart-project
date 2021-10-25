@@ -2,14 +2,18 @@
 
 :root {
   --bar-width: 200px;
-  --chart-width: 500px;
-  --chart-height: 500px;
   --bar-label: flex-start;
   --title-color: "#FFFFFF";
   --title-font-size: "16px";
   --gap: 2rem;
   --number-of-items: 4;
 
+
+}
+
+#root{
+
+height: 500px;
 
 }
 
@@ -33,6 +37,7 @@ body {
 }
 .code{
 
+  margin-top: 4rem;
 height: 3rem;
 font-size: 1.5rem;;
 width:100%;
@@ -41,8 +46,8 @@ width:100%;
 
 .bar-charts-container{
 
-  height: var(--chart-height);
-  width: var(--chart-width);
+  height: 100%;
+  width: 100% ;
   display: flex;
   justify-content: center;
   background: white;
@@ -127,4 +132,7 @@ width:100%;
   justify-content: center;
   margin-right: var(--gap);
   align-self: flex-end;
+  font-size: clamp(0.2rem, 0.8rem, 1rem);
+  overflow: hidden;
+  padding: 0 0.2rem;
 }
