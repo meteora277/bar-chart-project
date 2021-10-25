@@ -5,6 +5,12 @@
   --chart-width: 500px;
   --chart-height: 500px;
   --bar-label: flex-start;
+  --title-color: "#FFFFFF";
+  --title-font-size: "16px";
+  --gap: 2rem;
+  --number-of-items: 4;
+
+
 }
 
 *,*::before,*::after{
@@ -22,6 +28,7 @@ body {
 
   background: #a5a5a5;
   margin: 30px 5%;
+  font-family: Arial, Helvetica, sans-serif;
 
 }
 .code{
@@ -36,11 +43,24 @@ width:100%;
 
   height: var(--chart-height);
   width: var(--chart-width);
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
   background: white;
-  padding-bottom:2rem;
   margin-bottom: 2rem;
+
+}
+.title{
+
+  height: 3rem;
+  background: white ;
+  width: var(--chart-width);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+
+
 
 }
 
@@ -50,6 +70,7 @@ width:100%;
   width: 90%;
   height:90%;
   background: white;
+  padding-left: 1rem;
 
 }
 
@@ -99,11 +120,11 @@ width:100%;
 .bar{
 
   background-color: orange;
-  height: 100%;
-  width: var(--bar-width);
+  width: calc(100% / var(--number-of-items));
   display: flex;
+  height:100%;
   align-items: var(--bar-label);
   justify-content: center;
-
-
+  margin-right: var(--gap);
+  align-self: flex-end;
 }
