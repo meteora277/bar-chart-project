@@ -1,15 +1,30 @@
-let barCharts = $(".bar-charts-container")[0]
+let bar_chart = { uwu:"hi"};
 
-let graph = {
+let data = [1,2,3,4,5]
 
-  X_Axis: "100px",
-  Y_Axis: "100px",
-  background: "black",
-  X_Axis_Steps: 10,
-  Y_Axis_Steps: 10
+let element = document.getElementById("root")
 
-}
+let options = {
+  title:"Game Sales 2021",
+  titleColor:"#FFFFFF",
+  fontSize: "16px",
+  yAxisTicks: 10,
+  color: "#FFFFFF",
+  labelColor: "#000000",
+  gap: "10px",
+  xAxis: "game",
+  yAxis: "units sold",
 
 
 
-console.log(barCharts)
+};
+
+
+
+//data will be plotted lines
+
+//things we need
+// width = depends on how much data
+// height is dependant on data
+// color, labelcolor, barspacing, x and y axis, title > fontsize and color
+//x-axis label, y axis ticks
