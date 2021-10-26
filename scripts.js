@@ -2,23 +2,25 @@ let bar_chart = { uwu:"hi"};
 
 let options = {
   title:"Game Sales 2021",
-  titleColor:"#FFFFFF",
+  titleColor:"#000000",
   fontSize: "16px",
-  labels:["god of war"],
+  labels:["god of war", "henlo world"],
   labelColor: "#000000",
   colors: ["#0000FF","#F0F0F0"],
   gap: "30px",
   xAxis: "game",
   yAxis: "units sold",
-  yAxisTicks: 10
+  yAxisTicks: 9
 };
-let data = [1,2]
+let data = [1,9,8]
 
-function createContainer(element){
+//create empty basic container with the divs needed for graph, later functions will target this container
 
-  $(element).add(`
-    <div class="title"></div>
-    <div class="bar-charts-container" >
+function createContainer(target){
+
+  $(target).add(`
+    <div class="bar-charts-container" id="bar-charts-container">
+      <div class="y-axis-title">units sold (millions)</div>
       <div class="plot-grid y-plot-line x-plot-line">
         <div class="bar-container">
 
@@ -26,13 +28,21 @@ function createContainer(element){
         <div class="tick-container">
 
         </div>
-    </div>
-    </div>
-  `).appendTo(element)
+      </div>
+      <div class="rightlabel"></div>
+      <div class="labels-container">
+        <div class="label">God of War</div>
+        <div class="label">Genshin Impact</div>
+        <div class="label">Valorant</div>
+      </div>
+      </div>
+
+  `).appendTo(target)
 
 }
 
-function createBars(array, { colors, gap, labels }){
+//targets the
+function createBars(array, { colors, gap}){
 
   let sortedArray = [...array].sort((a,b) => a - b)
   let largestItem = sortedArray[ sortedArray.length -1 ]
@@ -41,7 +51,7 @@ function createBars(array, { colors, gap, labels }){
 
     $(".bar-container").add(`
       <div class="bar" style="height: ${item / largestItem * 100}%; background:${colors[index] || colors[0] || "black"}">
-        <p>${labels[index]|| ""}</p>
+        <p>${array[index]|| ""}</p>
       </div`).appendTo(".bar-container")
 
   })
@@ -51,24 +61,31 @@ function createBars(array, { colors, gap, labels }){
 
 }
 
-function createTicks(num){
+function createTicks({yAxisTicks}){
 
-  for (let i = 0; i < num ; i++){
+  for (let i = 0; i < yAxisTicks ; i++){
 
-    $(".tick-container").add("<div class='tick'></div>").appendTo(".tick-container")
+
+
+    $(".tick-container").add(`<div class='tick'><p class='tick-num'>${yAxisTicks - i}</p></div>`).appendTo(".tick-container")
 
   }
 
 }
-let element = document.getElementById("root")
 
-createContainer(element)
+
+
+function createTitle({title, fontSize, titleColor}){
+
+  $(`<div class="title" style="font-size: ${fontSize}; color: ${titleColor};">${title}</div>`).prependTo("#bar-charts-container")
+
+}
+let root = document.getElementById("root")
+
+createContainer(root)
 createBars(data, options)
-createTicks(10)
-
-
-
-
+createTicks(options)
+createTitle(options)
 
 //data will be plotted lines
 
