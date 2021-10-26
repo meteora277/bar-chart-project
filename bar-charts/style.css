@@ -11,7 +11,7 @@
 }
 
 #root {
-  height: 900px;
+  height: 1000px;
 }
 
 *,
@@ -52,18 +52,20 @@ body {
   grid-area: left-label;
 }
 .labels-container {
+  position: relative;
   height: 3rem;
   width: 100%;
   padding-left: calc(10% + 1rem);
   padding-right: 10%;
   margin-top: 1rem;
-  display: flex;
+
 }
 .label {
-  display: flex;
-  justify-content: center;
+
+  display: inline;
   width: calc(100% / var(--number-of-items));
   margin-right: var(--gap);
+  text-align: center;
 }
 
 .title {
@@ -142,4 +144,16 @@ body {
   font-size: clamp(0.2rem, 0.8rem, 1rem);
   overflow: hidden;
   padding: 0 0.2rem;
+}
+@media (max-width: 700px){
+  .label {
+    white-space: nowrap;
+  }
+  .bar-charts-container{
+
+    grid-template-columns: 20% 70% 10%;
+    grid-template-rows: 10% 70% 20%;
+
+  }
+
 }
